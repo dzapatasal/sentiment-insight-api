@@ -1,0 +1,48 @@
+package com.sentiment.api.errors;
+
+import com.sentiment.api.dto.ErrorResponse;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+import jakarta.servlet.http.HttpServletRequest;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    // Error texto vacio
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorResponse> handleValidationErrors(MethodArgumentNotValidException ex) {
+
+        String message = ex.getBindingResult()
+                .getFieldErrors()
+                .stream()
+                .findFirst()
+                .map(err -> err.getDefaultMessage())
+                .orElse("Solicitud invalida");
+
+        return ResponseEntity.badRequest().body(new ErrorResponse(message));
+    }
+
+    // JSON mal formado
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<ErrorResponse> handleWrongJsonFormat(HttpMessageNotReadableException ex) {
+        return ResponseEntity.badRequest().body(new ErrorResponse("JSON invalido"));
+    }
+
+    public static class MlServiceException extends RuntimeException {
+        public MlServiceException(String message) {
+            super(message);
+        }
+    }
+
+    @ExceptionHandler(MlServiceException.class)
+    public ResponseEntity<ErrorResponse> handleMlUnavailable(
+            MlServiceException ex,
+            HttpServletRequest request) {
+        return ResponseEntity
+                .status(503)
+                .body(new ErrorResponse(ex.getMessage()));
+    }
+}
