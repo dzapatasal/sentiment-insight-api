@@ -69,7 +69,73 @@ Para entender cómo opera el ecosistema del proyecto, podemos compararlo con un 
 
 ---
 
-## 🛠️ Guía de Lanzamiento
+## � Contratos de la API (Especificaciones Técnicas)
+
+### 🌎 1. Contrato Público (User ↔ Gateway)
+Este es el punto de entrada principal procesado por el orchestrador Java.
+
+**Endpoint:** `POST /sentiment`
+
+**Request Body:**
+```json
+{
+  "text": "El servicio fue excelente"
+}
+```
+
+**Validaciones de Seguridad:**
+- `text`: Campo obligatorio.
+- Longitud mínima: 3 caracteres.
+- Longitud máxima: 2000 caracteres.
+
+**Response (200 OK):**
+```json
+{
+  "prevision": "Positivo",
+  "probabilidad": 0.87,
+  "top_features": "excelente | servicio"
+}
+```
+*Previsión disponible: Positivo, Neutro, Negativo.*
+
+#### ⚠️ Respuestas de Error
+- **400 Bad Request:** Texto omitido o JSON mal formado.
+- **503 Service Unavailable:** Microservicio de IA no disponible o caída de red.
+
+---
+
+### 🧠 2. Contrato Interno (Gateway ↔ IA Engine)
+Protocolo de comunicación interna optimizado para baja latencia.
+
+**Endpoint:** `POST /predict/sentiment`
+
+**Request Body:**
+```json
+{
+  "text": "El servicio fue excelente"
+}
+```
+
+**Response Body:**
+```json
+{
+  "prevision": "Positivo",
+  "probabilidad": 0.87
+}
+```
+
+---
+
+## 🏗️ Infraestructura y Red
+| Servicio | Componente | Puerto |
+| :--- | :--- | :--- |
+| **Backend Java** | Gateway / Proxy | `8000` |
+| **Servicio IA** | FastAPI Engine | `8080` |
+| **Frontend UI** | Vanilla Web | `3000` |
+
+---
+
+## �🛠️ Guía de Lanzamiento
 
 Este proyecto utiliza **Java 21 (LTS)** y **Python 3.10+**. Para que el sistema funcione correctamente en sus equipos tras bajar la rama, sigan estos pasos:
 
