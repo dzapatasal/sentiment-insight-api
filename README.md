@@ -67,9 +67,7 @@ Para entender cómo opera el ecosistema del proyecto, podemos compararlo con un 
 3.  **ML Python (El Intelecto):** Es el núcleo cognitivo. Procesa el estímulo con un enfoque híbrido, interpretando no solo la superficie sino el trasfondo semántico para devolver un juicio con fundamentos técnicos.
 4.  **Docs (La Memoria Técnica):** Representa el manual de diseño del organismo. Es el conocimiento compartido que garantiza que cada pieza entienda su función y que el conjunto evolucione de manera coherente.
 
----
-
-## � Contratos de la API (Especificaciones Técnicas)
+## Contratos de la API (Especificaciones Técnicas)
 
 ### 🌎 1. Contrato Público (User ↔ Gateway)
 Este es el punto de entrada principal procesado por el orchestrador Java.
@@ -135,7 +133,7 @@ Protocolo de comunicación interna optimizado para baja latencia.
 
 ---
 
-## �🛠️ Guía de Lanzamiento
+## 🛠️ Guía de Lanzamiento
 
 Este proyecto utiliza **Java 21 (LTS)** y **Python 3.10+**. Para que el sistema funcione correctamente en sus equipos tras bajar la rama, sigan estos pasos:
 
@@ -258,5 +256,85 @@ python3 -m http.server 3000
 
 Acceso al sistema: **[http://localhost:3000](http://localhost:3000)**
 
----
+
+## Equipo
+
+Proyecto desarrollado por estudiantes de Backend y Data Science como parte de un Hackathon de **NoCountry** junto con **AluraLatam**, con enfoque en integración real entre disciplinas y buenas prácticas de desarrollo
+
+**Integrantes**:
+
+⚙️ **Backend Team**
+
+<table>
+  <tr>
+    <!-- Backend 1 -->
+    <td align="center" width="200">
+      <a href="https://github.com/TinusLopez">
+        <img src="https://avatars.githubusercontent.com/u/73755236?v=4" width="120" style="border-radius:50%;" />
+        <br />
+        <strong>Florentino Lopez</strong>
+      </a>
+      <br/>
+      <sub>Backend Developer · Frontend Designer</sub>
+    </td>
+    <!-- Backend 2 -->
+    <td align="center" width="200">
+      <a href="https://github.com/lorenaraygoza09">
+        <img src="https://avatars.githubusercontent.com/u/181152882?v=4" width="120" style="border-radius:50%;" />
+        <br />
+        <strong>Lorena Raygoza</strong>
+      </a>
+      <br />
+      <sub>Backend Developer</sub>
+    </td>
+    <!-- Backend 3 -->
+    <td align="center" width="200">
+      <a href="https://github.com/Sneyki01">
+        <img src="https://avatars.githubusercontent.com/u/156740507?v=4" width="120" style="border-radius:50%;" />
+        <br />
+        <strong>Edwing Herrera</strong>
+      </a>
+      <br />
+      <sub>Backend Developer</sub>
+    </td>
+  </tr>
+</table>
+
+📊 **Data Science Team**
+
+<table>
+  <tr>
+    <!-- Data 1 -->
+    <td align="center" width="200">
+      <a href="https://github.com/dzapatasal">
+        <img src="https://avatars.githubusercontent.com/u/182231593?v=4" width="120" style="border-radius:50%;" />
+        <br />
+        <strong>Diego Zapata</strong>
+      </a>
+      <br />
+      <sub>Data Scientist</sub>
+    </td>
+    <!-- Data 2 -->
+    <td align="center" width="200">
+      <a href="https://github.com/Fernando-Falla">
+        <img src="https://avatars.githubusercontent.com/u/203438966?v=4" width="120" style="border-radius:50%;" />
+        <br />
+        <strong>Fernando Falla</strong>
+      </a>
+      <br />
+      <sub>Data Scientist</sub>
+    </td>
+    <!-- Data 5 -->
+    <td align="center" width="200">
+      <a href="https://github.com/Alxs68">
+        <img src="https://avatars.githubusercontent.com/u/203614718?v=4" width="120" style="border-radius:50%;" />
+        <br />
+        <strong>Alexis Oliveros</strong>
+      </a>
+      <br />
+      <sub>Data Scientist</sub>
+    </td>
+  </tr>
+</table>
+
 *G68 - Calidad y Sentimiento en Tiempo Real* 🚀
